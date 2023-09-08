@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/aisamurai/static/css/main.073c9b0a.css",
+    "main.js": "/aisamurai/static/js/main.aee9ddc0.js",
+    "static/js/787.2578f0b6.chunk.js": "/aisamurai/static/js/787.2578f0b6.chunk.js",
+    "static/media/logo.svg": "/aisamurai/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/aisamurai/index.html",
+    "main.073c9b0a.css.map": "/aisamurai/static/css/main.073c9b0a.css.map",
+    "main.aee9ddc0.js.map": "/aisamurai/static/js/main.aee9ddc0.js.map",
+    "787.2578f0b6.chunk.js.map": "/aisamurai/static/js/787.2578f0b6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.aee9ddc0.js"
+  ]
+}
