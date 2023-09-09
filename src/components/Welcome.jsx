@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 
 const Welcome = () => {
     return (
-        <div>Welcome</div>
+        <div>Welcome Component</div>
     )
 }
 export default Welcome;
