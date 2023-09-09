@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
-import { Container, Box, Typography, Button } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { Box, IconButton } from '@mui/material';
+import MicIcon from '@mui/icons-material/Mic';
+import MicOffIcon from '@mui/icons-material/MicOff';
+import OutlinedCard from './StoryCard';
+
+const dummyStory = "One night, Max was looking at the stars through his new telescope. He noticed a bright light zooming across the sky. A shooting sta";
 
 const Listener = () => {
   const [buttonText, setButtonText] = useState('Start Recording');
@@ -8,8 +13,14 @@ const Listener = () => {
 
   // Add a state variable to track whether recording is in progress
   const [isRecording, setIsRecording] = useState(false);
+  const [story, SetStory] = useState('');
+  const [isMicOn, setIsMicOn] = useState(false);
+  useEffect(() => {
+      SetStory(dummyStory);
+  },[]);
 
   const handleClick = async () => {
+    setIsMicOn(!isMicOn);
     if (buttonText === 'Start Recording') {
       try {
         setButtonText('Pause');
@@ -63,67 +74,23 @@ const Listener = () => {
 
   };
 
-  function record(buffer) {
-    encoder = new WavAudioEncoder(sampleRate, numChannels);
-    encoder.encode(buffer);
-    let blob = encoder.finish(options.wav.mimeType)
-    let sentimentAnalysis = "";
-  
-    // Send blob to Mirro
-    const payload = new FormData();
-    const currentDate = new Date(Date.now()).toDateString();
-    const format = "wav"
-    payload.append('session_type_ids', '3');
-    payload.append('x-api-key', '9a702e0a-2b5a-5e85-8623-a08cdf40c4b1');
-    payload.append('files', blob, `${currentDate}.wav`);
 
-    fetch("https://ci-mirro-api.proudtree-c5071a26.canadacentral.azurecontainerapps.io/docs#/UploadMultipleFiles")
-        .then((response) => {
-            // Check if the response status is OK (status code 200)
-            if (!response.ok) {
-            throw new Error('Network response was not ok');
-            }})
-        .then((jsonResponse) => {
-          console.log("Successfully uploaded file");
-          console.log(jsonResponse);
-          //status1.innerHTML = JSON.stringify(jsonResponse);
-          const job_id = JSON.parse(JSON.stringify(jsonResponse));
 
-          emotion = "Emotion: " + sentiment.message.overall_emotion_name + "<br>";
-  
-        //   sentimentAnalysis += "Emotion: " + sentiment.message.emotion + "<br>";
-        //   sentimentAnalysis += "Energy: " + sentiment.message.energy + "<br>";
-        //   sentimentAnalysis += "Confidence: " + (sentiment.message.confidencepercent)*100 + "%<br>";
-        //   sentimentAnalysis += "Engagement: " + sentiment.message.engagementScore + "%<br>";
-        //   sentimentAnalysis += "Fatigue: " + sentiment.message.fatigue + "<br>";
-        //   sentimentAnalysis += "Irritation: " + sentiment.message.irritation + "<br>";
-        //   sentimentAnalysis += "Kudos: " + sentiment.message.kudos + "<br>";
-        //   sentimentAnalysis += "Tip: " + sentiment.message.tip + "<br>";
-          console.log("worker " + sentimentAnalysis);
-          sentimentUpdate(sentimentAnalysis)
-        }).catch((error) => {
-      console.log(error);
-    });
-  
-  };
-
-  return (
-    <Box
-      sx={{
-        height: '80vh',
-        width: '50vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        m: 1,
-      }}
-    >
-      <Button variant="contained" onClick={handleClick}>
-        {buttonText}
-      </Button>
-    </Box>
-  );
+  return (       
+    <Box sx={{  display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', height: '80vh', width: '50vh'}}>
+     <Box sx={{marginRight: 8}}>
+     <OutlinedCard story={story} />
+     </Box>
+     <Box sx={{ backgroundColor: '#FFF', borderRadius: '50%', marginLeft: 5, marginRight: 5, padding: '0.2rem'}}>
+     <IconButton variant="contained" size='large'  onClick={handleClick}>
+       {isMicOn ? <MicOffIcon /> : <MicIcon />}
+       </IconButton> 
+       </Box>
+       <Box sx={{marginLeft: 8}}>
+       <OutlinedCard story={story} />
+     </Box>
+   </Box>
+ );
 };
 
 export default Listener;
