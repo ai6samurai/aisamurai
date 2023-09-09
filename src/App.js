@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from 'react'
-import { Container, Box, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import Welcome from './components/Welcome';
 import GenerateStory from './components/GenerateStory';
 import Listener from './components/Listener';

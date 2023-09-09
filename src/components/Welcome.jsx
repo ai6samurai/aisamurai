@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 
 const Welcome = () => {
     const navigate = useNavigate();
