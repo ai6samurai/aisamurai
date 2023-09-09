@@ -6,15 +6,14 @@ const anthropic = new Anthropic({
 });
 
 // Our function to pass in the age, theme, character to create a prompt
-async function main(age, theme, character) {
+async function createStory(age, theme, character) {
   const completion = await anthropic.completions.create({
     model: 'claude-2',
     max_tokens_to_sample: 300,
-    prompt: `${Anthropic.HUMAN_PROMPT} Create a gender neutral story for a ${age} about ${theme} using a ${character}${Anthropic.AI_PROMPT}`,
+    prompt: `${Anthropic.HUMAN_PROMPT} Create a gender neutral story for a ${age}-year old about ${theme} using a ${character}${Anthropic.AI_PROMPT}`,
   });
 
   console.log(completion);
 }
 
- main("4", "car", "Lightning McQueen");
-
+ export default createStory;
