@@ -1,15 +1,9 @@
 import * as React from 'react'
-import Box from '@mui/material'
+import { Box } from '@mui/material';
 
 const Welcome = () => {
     return (
-        <Box
-            sx={{
-                top: 50,
-                left: 30,
-                color: 'blue'
-            }}
-        ></Box>
+        <div>Welcome</div>
     )
 }
 export default Welcome;
