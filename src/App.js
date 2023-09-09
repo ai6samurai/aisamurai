@@ -36,6 +36,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="generate-story" element={<GenerateStory />} />
+          <Route path="read-story" element={<Listener />} />
         </Routes>
       </BrowserRouter>
       </Container>
