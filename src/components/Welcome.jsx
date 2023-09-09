@@ -10,29 +10,12 @@ const Welcome = () => {
       }
 
     return (
-        <Container maxWidth="lg" 
-          sx={{
-            marginTop: 10,
-            backgroundImage: "url('sky_monkey.jpg')",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
+        <Box sx={{ height: '80vh', width: '50vh',
               display: 'flex', 
               flexDirection: 'column', 
               alignItems: 'center',
-              textAlign: 'center', m: 1,
-              zIndex: '1'
-          }}>
-        <Typography 
-              sx={{
-                fontFamily:'Kranky', fontSize: '48px',
-                color: '#3C3838',
-                fontStyle: 'normal',
-                fontWeight: 400,
-                lineHeight: 'normal',
-                textAlign: 'center', m: 1
-                }}>
-              StoryLand  
-            </Typography> 
+              textAlign: 'center', m: 1
+            }}>
             <Typography 
               sx={{
                 color: '#2D2D1D',
@@ -50,7 +33,7 @@ const Welcome = () => {
             </Typography>
             <Button sx={{marginTop: 2}} variant="contained" onClick={handleClick}>Enter</Button>
             </Box>
-            </Container>
+            </Box>
     )
 }
 export default Welcome;
