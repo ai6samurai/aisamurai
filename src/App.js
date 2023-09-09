@@ -4,6 +4,7 @@ import { Container, Typography } from '@mui/material';
 import Welcome from './components/Welcome';
 import GenerateStory from './components/GenerateStory';
 import Listener from './components/Listener';
+import MirroOutput from './components/MirroOutput';
 import './App.css';
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/" element={<Welcome />} />
           <Route path="generate-story" element={<GenerateStory />} />
           <Route path="read-story" element={<Listener />} />
+          <Route path="mirro-output" element={<MirroOutput />} />
         </Routes>
       </BrowserRouter>
       </Container>
