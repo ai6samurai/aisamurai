@@ -54,7 +54,7 @@ const GenerateStory = () => {
                 age,
                 theme,
             };
-            createStory(age, theme, name);
+            // createStory(age, theme, name);
             console.log(name, age, theme);
             navigate('/read-story');
         } else {
